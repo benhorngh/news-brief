@@ -20,11 +20,11 @@ class DynamicExtraFormatter(logging.Formatter):
 
 
 def init_logger():
-    os.makedirs("../logs", exist_ok=True)
+    os.makedirs("logs", exist_ok=True)
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
     file_handler = RotatingFileHandler(
-        "../logs/logs.log", maxBytes=1 * 1024 * 1024, backupCount=1
+        "logs/logs.log", maxBytes=1 * 1024 * 1024, backupCount=1
     )
 
     formatter = DynamicExtraFormatter(
