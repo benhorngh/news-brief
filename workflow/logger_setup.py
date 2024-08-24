@@ -20,19 +20,22 @@ class DynamicExtraFormatter(logging.Formatter):
 
 
 def init_logger():
-    os.makedirs("logs", exist_ok=True)
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
-    file_handler = RotatingFileHandler(
-        "logs/logs.log", maxBytes=1 * 1024 * 1024, backupCount=1
-    )
 
     formatter = DynamicExtraFormatter(
         "%(asctime)s %(name)s %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s"
     )
 
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
     stream_handler = logging.StreamHandler()
     stream_handler.setFormatter(formatter)
     logger.addHandler(stream_handler)
+
+
+def add_file_logger(logger, formatter):
+    os.makedirs("logs", exist_ok=True)
+    file_handler = RotatingFileHandler(
+        "logs/logs.log", maxBytes=1 * 1024 * 1024, backupCount=1
+    )
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
