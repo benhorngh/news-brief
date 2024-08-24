@@ -135,6 +135,7 @@ def _is_object_exist(object_key: str) -> bool:
     except botocore.exceptions.ClientError as e:
         if e.response["Error"]["Code"] == "404":
             return False
+        logging.error(e.response["Error"])
         raise
     return True
 
