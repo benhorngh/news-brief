@@ -11,7 +11,6 @@ jobs:
       lambda_function_name: ${{ vars.LAMBDA_FUNCTION_NAME }}
       ecr_repo_name: ${{ vars.ECR_REPO_NAME }}
       region: ${{ vars.REGION }}
-      dockerfile_path: .
     secrets:
       aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
       aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
