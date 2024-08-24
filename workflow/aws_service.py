@@ -7,8 +7,8 @@ import botocore
 import requests
 from botocore.exceptions import ClientError
 
-from models import Brief
-from settings import settings
+from workflow.models import Brief
+from workflow.settings import settings
 
 s3_client = boto3.client("s3")
 transcribe_client = boto3.client("transcribe")

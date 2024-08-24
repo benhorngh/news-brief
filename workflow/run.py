@@ -1,11 +1,9 @@
 import logging
 
-import audio_service
-import aws_service
-import claude_service
-import twitter_client
-from logger_setup import init_logger
-from settings import settings
+
+from workflow import audio_service, aws_service, claude_service, twitter_client
+from workflow.logger_setup import init_logger
+from workflow.settings import settings
 
 
 def run():

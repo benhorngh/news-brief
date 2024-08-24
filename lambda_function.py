@@ -10,9 +10,11 @@ def handler(event, context):
         logging.info("Got event")
 
         from workflow import secrets_manager
+
         secrets_manager.update_secrets()
 
         from workflow.run import run
+
         run()
     except Exception:
         logging.exception("Lambda function failed")

@@ -6,10 +6,12 @@ from io import BytesIO
 import feedparser
 import requests
 
-from models import Brief
+from workflow.models import Brief
 
 
 def fetch_audio_details_from_rss(rss_url: str) -> Brief:
+    if not rss_url:
+        raise ValueError(f"Invalid rss_url: '{rss_url}'")
     logging.info("Fetching audio info")
     feed = feedparser.parse(rss_url)
     latest_entry = feed.entries[0]

@@ -2,7 +2,7 @@ import logging
 
 import anthropic
 
-from settings import settings
+from workflow.settings import settings
 
 client = anthropic.Anthropic(api_key=settings.CLAUDE_API_KEY)
 

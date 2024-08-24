@@ -2,8 +2,8 @@ import logging
 
 import tweepy
 
-from models import Brief
-from settings import settings
+from workflow.models import Brief
+from workflow.settings import settings
 
 x_client = tweepy.Client(
     bearer_token=settings.TWITTER_BEARER,
